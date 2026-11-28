@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Display</title>
+     <style>
+.container {
+
+display: grid;
+grid-template-columns: 200px 1fr;
+grid-template-rows: 80px 3fr 60px;
+
+grid-template-areas:
+"header header"
+"sidebar main"
+"footer footer";
+
+gap: 15px;
+min-height: 500px;
+
+}
+.header {
+
+grid-area: header;
+background-color: rgb(58, 58, 141);
+color: rgb(146, 120, 120);
+padding: 20px;
+text-align: center;
+}
+.sidebar {
+
+grid-area: sidebar;
+background-color: rgb(68, 135, 157);
+padding: 20px;
+}
+.main {
+grid-area: main;
+background-color: rgb(206, 206, 155);
+padding: 20px;
+}
+.cards {
+display: grid;
+grid-template-columns:
+repeat(auto-fit, minmax(150px, 1fr));
+gap: 15px;
+justify-items: stretch;
+align-items: stretch;
+
+}
+.card {
+background-color: lightseagreen;
+color: rgb(244, 238, 238);
+padding: 25px;
+text-align: center;
+
+}
+.featured {
+grid-column: span 2;
+justify-self: center;
+align-self: center;
+
+}
+.footer {
+
+grid-area: footer;
+background-color:rgb(141, 141, 185);
+text-align: center;
+padding: 15px;
+}
+@media (max-width: 600px) {
+
+.container {
+
+grid-template-columns: 1fr;
+grid-template-rows: auto;
+grid-template-areas:
+"header"
+"sidebar"
+"main"
+"footer";
+
+}
+.featured {
+grid-column: span 1;
+}
+
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            College Dashboard
+        </header>
+        <aside class="sidebar">
+            <p>Home</p>
+            <p>Students</p>
+            <p>Courses</p>
+            <p>Reports</p>
+        </aside>
+
+        <main class="main">
+            <h2>Dashboard Information</h2>
+            <div class="cards">
+             <div class="card">Students</div>
+             <div class="card">Faculty</div>
+             <div class="card">Courses</div>
+             <div class="card">Results</div>
+             <div class="card featured">
+             Overall Performance </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+             College Dashboard Footer
+        </footer>
+
+    </div>
+</body>
+</html>
